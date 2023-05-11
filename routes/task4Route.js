@@ -3,7 +3,7 @@ const router = express.Router();
 const zodiacs = require("../data").zodiacs;
 
 router.get("/", (req, res) => {
-  res.render("task4", { zodiacs: zodiacs, isMenu: true, detail: {} });
+  res.render("task4", { zodiacs });
 });
 
 router.get("/:zodiac", (req, res) => {
@@ -12,7 +12,7 @@ router.get("/:zodiac", (req, res) => {
   const zodiacProp = selectedZodiac.length > 0 ? selectedZodiac[0] : zodiacs[0];
   console.log(zodiacProp);
 
-  res.render("task4", { zodiacs: zodiacs, isMenu: false, detail: zodiacProp });
+  res.render("task4-details", { zodiacs: zodiacs, detail: zodiacProp });
 });
 
 module.exports = router;
