@@ -1,0 +1,51 @@
+<!--contain-->
+<div class="container">
+    <div class="page-header">
+        <form class="form-horizontal" method="get" action="">
+            <fieldset>
+                <!-- Form Name -->
+                <legend class="text-center">
+                    <h1>Jars Saving</h1>
+                </legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="salary">Your salary</label>
+                    <div class="col-md-4">
+                        <input id="salary" name="salary" type="number" min="0" placeholder=""
+                            value="{{salary}}" class="form-control input-md" required="" />
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="submit"></label>
+                    <div class="col-md-4">
+                        <input type="submit" value="Calculate" class="btn btn-primary" />
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <!--jars-->
+    <div class="container text-center">
+        {{#each accounts}}
+
+        {{#if (eq (mod @index 3) 0)}}
+        <div class="row stylish-panel">
+            {{/if}}
+
+            <div class="col-md-4">
+                <img src="{{image}}" alt="{{alt}}" class="img-circle img-thumbnail" />
+                <h3>{{title}} <small>{{percent}}%</small></h3>
+                <h2 class="jars">{{mul salary percent}}</h2>
+            </div>
+
+            {{#if (eq (mod @index 3) 2)}}
+        </div>
+        {{/if}}
+        {{/each}}
+    </div>
+    <!--/jars-->
+</div>
+<!--/contain-->
